@@ -1,0 +1,51 @@
+<% if (!isModal) { %>
+    <% include ../partials/header %>
+    <div class='container spacer'>
+<% } %>
+
+<% if (isModal) { %>
+    <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+        </button>
+    </div>
+<% } %>
+
+    <div class='modal-body'>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-md-6'><img class='img-fluid' src='/<%= product.image %>' alt='<%= product.name %>'></div>
+                <div class='col-md-6'>
+                    <h2 class='modal-title'>
+                        <%= product.name %>
+                    </h2>
+                    <p class='spacer'><%= product.description %></p>
+                    <h2 class='spacer'><%= product.price %> <%= product.priceSuffix %></h2>
+                    <form class='ui form spacer' id='addToCart' action='/carts' method='POST'>
+                        <div class='field'>
+                            <input class='quantity-input' name='cart[quantity]' type='number' min='0' max='999' inputmode='numeric' pattern='[0-9]*' step='1' value='1' autofocus>
+                            <input class='shopper-hidden' name='cart[product]' value='<%= product._id %>' readonly>
+                        </div>                                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='modal-footer'>
+        <% if (currentUser && currentUser.isAdmin) { %>
+            <form id='editProduct' action='/products/<%= product._id %>/edit' method='GET'>
+                <button form='editProduct' type='submit' class='btn btn-primary'><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            </form>
+            <form id='deleteProduct' action='/products/<%= product._id %>?_method=DELETE' method='POST'>
+                <button form='deleteProduct' type='submit' class='btn btn-danger'><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </form>
+        <% } %>
+        <button form='addToCart' type='submit' class='btn btn-primary'><i class='fa fa-cart-plus' aria-hidden='true'></i> Add to cart</button>
+        <a class='btn btn-secondary' href='/products'>Cancel</a>
+    </div>
+
+<% if (!isModal) { %>                
+    </div>
+    
+    <% include ../partials/footer %>
+<% } %>

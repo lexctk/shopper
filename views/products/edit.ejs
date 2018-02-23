@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+
+<div class = 'container spacer'>
+    <form class='ui form' action='/products/<%= product._id %>?_method=PUT' method='POST'>
+        <h4 class='ui dividing header'>Edit <%= product.name %></h4>
+        <div class='two fields'>
+            <div class='field'>
+                <label>Name</label>
+                <input type='text' name='product[name]' placeholder='Name' value='<%= product.name %>' required>
+            </div>
+            <div class='field'>
+                <label>Image</label>
+                <input type='text' name='product[image]' placeholder='Image' value='<%= product.image %>' required>
+            </div>
+        </div>
+        <div class='two fields'>
+            <div class='field'>
+                <label>Price</label>
+                <input type='number' name='product[price]' placeholder='Price' min='0' step='0.01' value='<%= product.price %>' required>
+            </div>
+            <div class='field'>
+                <label>PriceSuffix</label>
+                <input type='text' name='product[priceSuffix]' value='<%= product.priceSuffix %>' placeholder='PriceSuffix' required>
+            </div>
+        </div>
+        <div class='field'>
+            <label>Description</label>
+            <textarea name='product[description]' rows='2'><%= product.description %></textarea>
+        </div>
+        
+        <div class='inline fields'>
+            <label for='product[category]'>Select category:</label>
+            <% for (i=0; i<Product.schema.path('category').enumValues.length; i++) { %>
+                <div class='field'>
+                    <% 
+                        let checked = '';
+                        if (product.category == Product.schema.path('category').enumValues[i]) {
+                            checked='checked';
+                        }
+                    %>
+                        <div class='ui radio checkbox <%= checked %>'>
+                            <input type='radio' name='product[category]' <%= checked %> tabindex='0' class='hidden' value='<%= Product.schema.path('category').enumValues[i] %>' required>
+                            <label><%= Product.schema.path('category').enumValues[i] %></label>
+                        </div>
+                </div>
+            <% } %>
+        </div>
+        <div class='ui buttons'>
+            <a class='ui button' href='/products/<%= product._id %>'>Cancel</a>
+        <div class='or'></div>
+            <button class='ui positive button' type='submit'>Save</button>
+        </div>
+    </form>
+</div>
+
+<% include ../partials/footer %>

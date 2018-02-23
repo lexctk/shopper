@@ -1,0 +1,147 @@
+body {
+    font-family: 'Lato', sans-serif;
+    padding-top: 118px;
+}
+
+body, html {
+    height: 100vh;
+}
+
+footer {
+    padding: 1.5rem 0rem;
+}
+
+/* header navbar */
+.navbar-light .navbar-nav .nav-link {
+    color: #343a40;
+}
+
+/* header navbar */
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.15rem!important;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    padding: 1.5em 0em;
+}
+
+/* header navbar */
+.navbar.shrink {
+    padding: 0.5em 2em;
+    background-color: white;
+}
+
+/* header navbar */
+.logo {
+    max-width: 50px;
+}
+
+/* header navbar */
+.navbar-brand {
+    font-size: 1.15rem!important;
+    padding-top: 0.5rem;
+    margin-right: 1rem;
+}
+
+/* add left and right margin to all font awesome icons */
+.fa {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+/* parallax on all product INDEX pages */
+.parallax {
+    /* The image used */
+    background-image: url('../images/qr_scan.png');
+    opacity: 0.3;
+
+    /* Full height */
+    height: 100vh; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* use to space out elements, global */
+.spacer {
+    margin-top: 3rem!important;
+}
+
+/* product EDIT form and cart INDEX page */
+.quantity-input {
+    width: 70px!important;
+}
+
+/* EDIT quantity form on cart INDEX page has a hidden input with cart ID */
+/* global */
+.shopper-hidden {
+    display:none;
+}
+
+/* cart INDEX */
+.ui.list .item .content {
+    display: inline-block;
+}
+
+/* change font color for bootstrap btn-link */
+.btn-link {
+    color: grey;
+}
+
+/* global, transparent button, only content html is visible */
+/* DELETE button on cart INDEX */
+.btn-hidden {
+    border: 0; 
+    padding: 0; 
+    font-size: 0;
+    content: none;
+}
+
+/* global, transparent button that covers the entire parent */
+.button-stretched {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: progress;
+}
+
+
+
+
+/* any product INDEX element has a ribbon for the category */
+
+.ui.ribbon.label {
+    left: calc(-0.06rem - 1.2em);
+    margin-right: 5.5em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    margin-top: 1.5em;
+}
+
+.produce {
+    background-color: #21ba45!important;
+}
+.produce > .icon:before {
+    content: '\f06c';
+}
+
+.office {
+    background-color: #7698ff!important;
+}
+
+.audio > .icon:before {
+    content: '\f025';
+}
+
+.office > .icon:before {
+    content: '\f0b1';
+}

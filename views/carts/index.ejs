@@ -1,0 +1,112 @@
+<% include ../partials/header %>
+
+<div class='container spacer'>
+
+    <!-- Cart INDEX -->
+    <div class='row justify-content-center'>
+        <div class='col-10'>
+            
+            <h2 class='header'>
+                <i class='fa fa-cart-plus' aria-hidden='true'></i>
+                Cart
+            </h2>            
+
+            <div class='ui attached relaxed divided large list spacer middle aligned'>
+                
+                <!-- calculate total cart amount, and remember currency used --> 
+                <% var total = 0; %>
+                <% var currency = '' %>
+                
+                <!-- loop through all cart items -->
+                <% carts.forEach (function (cart) { %>
+                    <div class='item d-flex'>
+                        
+                        <!-- form allows to edit cart quantity -->
+                        <form class='ui form p-2 content' id='addToCart' action='/carts/<%= cart._id %>?_method=PUT' method='POST'>
+                            <div class='field'>
+                                <input class='quantity-input' name='cart[quantity]' type='number' min='0' max='999' inputmode='numeric' pattern='[0-9]*' step='1' value='<%= cart.quantity %>'>
+                                <% if (cart.product) { %>
+                                    <input class='shopper-hidden' name='cart[product]' value='<%= cart.product.id %>' readonly>
+                                <% } %>
+                                <button class='btn-hidden' type='submit'></button>
+                            </div>
+                        </form>
+                        
+                        <!-- cover case when product was deleted from the database but is still in the cart -->
+                        <% if (cart.product) { %>
+                            <img class='ui avatar image align-self-center' src='<%= cart.product.image %>'>
+                            <div class='content p-2'>
+                                <div class='header'><%= cart.product.name %></div>
+                                <%= cart.product.price.toFixed(2) %> <%= cart.product.priceSuffix %>
+                            </div>
+                            <div class='content p-2 ml-auto align-self-center'>
+                                <% 
+                                    total += cart.product.price * cart.quantity; 
+                                    currency = cart.product.priceSuffix.charAt(0);
+                                %>
+                                <%= (cart.product.price * cart.quantity).toFixed(2) %> <%= currency %>
+                            </div>
+                        <% } else { %>
+                            <img class='ui avatar image align-self-center' src=''>
+                            <div class='content p-2'>
+                                <div class='header text-danger'>No longer available</div>
+                            </div>
+                            <!-- have to manually align delete button to the right -->
+                            <% var align = ' ml-auto'; %>
+                        <% } %>
+                            <!-- show delete button, as cart item can still be deleted -->
+                            <div class='content p-2 align-self-center<%= align %>'>
+                                <form class='ui form' action='/carts/<%= cart._id %>?_method=DELETE' method='POST'>
+                                    <button class='btn btn-link' type='submit'><i class='fa fa-times' aria-hidden='true'></i></button>
+                                </form>
+                            </div>
+                    </div>
+                <% }); %>
+                    <!-- print total and currency -->
+                    <div class='item d-flex justify-content-end'>
+                        <div class='content p-2'>
+                            <h3>Total</h3>
+                        </div>
+                        <div class='content p-2 align-self-center'>
+                            <h3><%= total.toFixed(2) %> <%= currency %></h3>
+                        </div>
+                    </div>                
+            </div> 
+            
+            <!-- order flow options -->
+            <div class='ui four bottom attached steps'>
+                <div class='active step'>
+                    <i class='cart arrow down icon'></i>
+                    <div class='content'>
+                        <div class='title'>Review</div>
+                        <div class='description'>Review your order</div>
+                    </div>
+                </div>                
+                <div class='step'>
+                    <i class='truck icon'></i>
+                    <div class='content'>
+                        <div class='title'>Shipping</div>
+                        <div class='description'>Choose your shipping options</div>
+                    </div>
+                </div>
+                <div class='step'>
+                    <i class='payment icon'></i>
+                    <div class='content'>
+                        <div class='title'>Billing</div>
+                        <div class='description'>Enter billing information</div>
+                    </div>
+                </div>
+                <div class='disabled step'>
+                    <i class='info icon'></i>
+                    <div class='content'>
+                        <div class='title'>Confirm Order</div>
+                        <div class='description'>Verify order details</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

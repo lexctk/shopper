@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<div class='container spacer'>
+    <h4 class='ui horizontal divider header'>
+        <i class='tags icon'></i>
+        Products
+    </h4>
+    <!-- Product INDEX -->
+    <div class='ui six doubling cards spacer'>
+        <% products.forEach (function (product) { %>
+            <div class='ui card'>
+                <a class='ui ribbon label <%= product.category.toLowerCase() %>' href='/products/category/<%= product.category.toLowerCase() %>'><i class='icon'></i><%= product.category %></a>
+                <a class='image' href='/products/<%= product._id %>' data-toggle='modal' id='<%= product._id %>' data-target='#productModal'>
+                    <img src='/<%= product.image %>' alt='<%= product.name %>'>
+                </a>
+                <div class='content'>
+                    <a class='description' href='/products/<%= product._id %>' data-toggle='modal' id='<%= product._id %>' data-target='#productModal'>
+                        <%= product.name %><span class='float-right'><%= product.price %><%= product.priceSuffix %></span>
+                    </a>
+                </div>
+
+                <form action='/carts' method='POST'>
+                    <input class='shopper-hidden' name='cart[quantity]' value='1' readonly>
+                    <input class='shopper-hidden' name='cart[product]' value='<%= product._id %>' readonly>
+                    <button type='submit' class='button-stretched ui bottom attached button'><i class='fa fa-cart-plus' aria-hidden='true'></i> Add to cart</button>
+                </form>                    
+              
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<div class='container spacer'>
+    <div id='productModal' class='modal fade bd-example-modal-lg' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true'>
+        <div class='modal-dialog modal-lg'>
+            <div class='modal-content'>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<div class = 'container spacer'>
+    <form class='ui form' action='/products' method='POST'>
+        <h4 class='ui dividing header'>New Product</h4>
+        <div class='two fields'>
+            <div class='field'>
+                <label>Name</label>
+                <input type='text' name='product[name]' placeholder='Name' required>
+            </div>
+            <div class='field'>
+                <label>Image</label>
+                <input type='text' name='product[image]' value='images/products/.png' required>
+            </div>
+        </div>
+        <div class='two fields'>
+            <div class='field'>
+                <label>Price</label>
+                <input type='number' name='product[price]' placeholder='Price' min='0' step='0.01' required>
+            </div>
+            <div class='field'>
+                <label>PriceSuffix</label>
+                <input type='text' name='product[priceSuffix]' value='€' data-validate='priceSuffix' required>
+            </div>
+        </div>
+        <div class='field'>
+            <label>Description</label>
+            <textarea name='product[description]' rows='2' required></textarea>
+        </div>
+        
+        <div class='inline fields'>
+            <label for='product[category]'>Select category:</label>
+            <% for (i=0; i<Product.schema.path('category').enumValues.length; i++) { %>
+                <div class='field'>
+                    <div class='ui radio checkbox'>
+                        <input type='radio' name='product[category]' tabindex='0' class='hidden' required value='<%= Product.schema.path('category').enumValues[i] %>'>
+                        <label><%= Product.schema.path('category').enumValues[i] %></label>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <div class='ui buttons'>
+            <a class='ui button' href='/products'>Cancel</a>
+        <div class='or'></div>
+            <button class='ui positive button' type='submit'>Save</button>
+        </div>
+    </form>
+</div>
+
+<% include ../partials/footer %>

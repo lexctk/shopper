@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang='en'>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+		
+    	<!-- Semantic UI CSS -->
+    	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css' integrity='sha256-/mC8AIsSmTcTtaf8vgnfbZXZLYhJCd0b9If/M0Y5nDw=' crossorigin='anonymous' />
+
+		<!-- Bootstrap CSS -->
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+
+    	<!-- Font Awesome CSS -->
+    	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    	
+    	<!-- Google Fonts -->
+    	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+
+		<link rel='stylesheet' href='/styles/style.css'>
+
+		<title>Shopper</title>
+	</head>
+	<body>
+	<header>
+		<nav class='navbar navbar-light navbar-expand-lg fixed-top scrolling-navbar'><div class='container'>
+			<a href='/' class='navbar-brand'>
+				<img src='/images/eet-shopper-logo.png' class='d-inline-block align-middle logo' alt='Logo'> Shopper
+			</a>
+	
+			<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+				<span class='navbar-toggler-icon'></span>
+			</button>
+	
+			<div class='collapse navbar-collapse' id='navbarSupportedContent'>
+				<ul class='navbar-nav mr-auto'>
+					<li class='nav-item'>
+						<a class='nav-link' href='/products'>All</a>
+					</li>					
+					<li class='nav-item'>
+						<a class='nav-link' href='/products/category/produce'>Produce</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='/products/category/audio'>Audio</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='/products/category/office'>Office</a>
+					</li>
+				</ul>
+						
+				<ul class='navbar-nav'>
+					<% if (!currentUser) { %>
+						<li class='nav-item'>
+							<a class='nav-link' href='/auth/login'><i class="fa fa-lock" aria-hidden="true"></i> Sign In</a>
+						</li>
+					<% } else { %>
+						<li class='nav-item dropdown'>
+							<a class='nav-link dropdown-toggle' href='' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+								<i class="fa fa-lock" aria-hidden="true"></i> <%= currentUser.username %>
+							</a>
+							<div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+								<% if (currentUser.isAdmin) { %>
+									<a class='dropdown-item' href='/products/new'><i class="fa fa-plus" aria-hidden="true"></i> Add New</a>
+								<% } %>
+								<a class='dropdown-item' href='/admin/print'><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+								<a class='dropdown-item' href='/carts'><i class='fa fa-trash-o' aria-hidden='true'></i> Empty Cart</a>
+								<a class="dropdown-item" href="/auth/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+							</div>
+						</li>
+					<% } %>
+					<li class='nav-item'>
+						<a class='nav-link' href='/carts'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a>
+					</li>
+				</ul>
+			</div>
+		</div></nav>
+	</header>

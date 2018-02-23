@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class='container spacer'>
+    <div class='row'>
+        <% products.forEach (function (product) { %>
+            <div class='col-6'>
+                <svg class='barcode'
+                    jsbarcode-format='CODE39'
+                    jsbarcode-value='<%= product._id %>'
+                    jsbarcode-textmargin='0'
+                    jsbarcode-width='1'>
+                </svg>                
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
