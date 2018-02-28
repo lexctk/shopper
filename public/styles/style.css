@@ -66,6 +66,9 @@ footer {
 	top: 15%;
     animation: zoomin .6s ease-out 1;
     animation-fill-mode: forwards;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 /* adds the 4 corners */

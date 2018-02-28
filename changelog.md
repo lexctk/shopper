@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.3] - 2018-02-28
+### Changed
+- Fix inline-block elements
+
+## [0.0.2] - 2018-02-28
+### Added
+- Seed database
+- CSS animations
+- Compress images with tinypng
+
 ## [0.0.1] - 2018-02-23
 ### Added
 - Barcode parser
