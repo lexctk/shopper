@@ -18,7 +18,7 @@ var express                 = require ('express'),
     cartRoutes              = require ('./routes/cart'),
     authenticationRoutes    = require ('./routes/authentication'),
     adminRoutes             = require ('./routes/admin');
-    
+
 var databaseURL = process.env.SHOPPERDBURL || 'mongodb://localhost/shopper';
 mongoose.connect(databaseURL);
     

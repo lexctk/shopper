@@ -52,6 +52,14 @@ var products = [
         category: 'Produce'
     },
     {
+        name: 'Blueberry',
+        image: 'images/products/blueberry.png',
+        price: 2.5,
+        priceSuffix: '€ /150g',
+        description: 'A small sweet blue-black edible berry which grows in clusters on North American shrubs related to the bilberry.',
+        category: 'Produce'
+    },
+    {
         name: 'Cherry',
         image: 'images/products/cherry.png',
         price: 9,
@@ -60,11 +68,155 @@ var products = [
         category: 'Produce'
     },
     {
-        name: 'Blueberry',
-        image: 'images/products/blueberry.png',
-        price: 2.5,
-        priceSuffix: '€ /150g',
-        description: 'A small sweet blue-black edible berry which grows in clusters on North American shrubs related to the bilberry.',
+        name: 'Coconut',
+        image: 'images/products/coconut.png',
+        price: 0.89,
+        priceSuffix: '€',
+        description: 'The large oval brown seed of a tropical palm, consisting of a hard woody husk surrounded by fibre, lined with edible white flesh and containing a clear liquid.',
+        category: 'Produce'
+    },
+    {
+        name: 'Cranberry',
+        image: 'images/products/cranberry.png',
+        price: 2.8,
+        priceSuffix: '€ /300g',
+        description: 'A small red acid berry used in cooking.',
+        category: 'Produce'
+    },
+    {
+        name: 'Grape',
+        image: 'images/products/grape.png',
+        price: 3.9,
+        priceSuffix: '€ /kg',
+        description: 'A berry (typically green, purple, or black) growing in clusters on a grapevine, eaten as fruit and used in making wine.',
+        category: 'Produce'
+    },
+    {
+        name: 'Grapefruit',
+        image: 'images/products/grapefruit.png',
+        price: 1.33,
+        priceSuffix: '€ /kg',
+        description: 'The grapefruit is a subtropical citrus tree known for its sour to semi-sweet, somewhat bitter fruit.',
+        category: 'Produce'
+    },
+    {
+        name: 'Kiwifruit',
+        image: 'images/products/kiwifruit.png',
+        price: 1.2,
+        priceSuffix: '€ /kg',
+        description: 'Kiwifruit or Chinese gooseberry is the edible berries of several species of woody vines in the genus Actinidia.',
+        category: 'Produce'
+    },
+    {
+        name: 'Lemon',
+        image: 'images/products/lemon.png',
+        price: 1.2,
+        priceSuffix: '€ /kg',
+        description: 'The lemon, Citrus limon Osbeck, is a species of small evergreen tree in the flowering plant family Rutaceae, native to Asia.',
+        category: 'Produce'
+    },
+    {
+        name: 'Lime',
+        image: 'images/products/lime.png',
+        price: 3.19,
+        priceSuffix: '€ /kg',
+        description: 'A lime is a hybrid citrus fruit, which is typically round, lime green, 3–6 centimetres in diameter, and contains acidic juice vesicles.',
+        category: 'Produce'
+    },
+    {
+        name: 'Mango',
+        image: 'images/products/mango.png',
+        price: 5.8,
+        priceSuffix: '€ /kg',
+        description: 'Mangoes are juicy stone fruit from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit.',
+        category: 'Produce'
+    },
+    {
+        name: 'Olives',
+        image: 'images/products/olive.png',
+        price: 2.8,
+        priceSuffix: '€ /kg',
+        description: 'The olive, known by the botanical name Olea europaea, meaning "European olive", is a species of small tree in the family Oleaceae, found in the Mediterranean Basin from Portugal to the Levant, the Arabian Peninsula, and southern Asia as far east as China, as well as the Canary Islands and Réunion.',
+        category: 'Produce'
+    },
+    {
+        name: 'Orange',
+        image: 'images/products/orange.png',
+        price: 1.38,
+        priceSuffix: '€ /kg',
+        description: 'The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.',
+        category: 'Produce'
+    },
+    {
+        name: 'Peach',
+        image: 'images/products/peach.png',
+        price: 2.76,
+        priceSuffix: '€ /kg',
+        description: 'The peach is a deciduous tree native to the region of Northwest China between the Tarim Basin and the north slopes of the Kunlun Shan mountains, where it was first domesticated and cultivated.',
+        category: 'Produce'
+    },
+    {
+        name: 'Pear',
+        image: 'images/products/pear.png',
+        price: 1.63,
+        priceSuffix: '€ /kg',
+        description: 'The pear is any of several tree and shrub species of genus Pyrus, in the family Rosaceae.',
+        category: 'Produce'
+    },
+    {
+        name: 'Pineapple',
+        image: 'images/products/pineapple.png',
+        price: 1.74,
+        priceSuffix: '€ /kg',
+        description: 'The pineapple is a tropical plant with an edible multiple fruit consisting of coalesced berries, also called pineapples, and the most economically significant plant in the Bromeliaceae family.',
+        category: 'Produce'
+    },
+    {
+        name: 'Plum',
+        image: 'images/products/plum.png',
+        price: 1.43,
+        priceSuffix: '€ /kg',
+        description: 'A plum is a fruit of the subgenus Prunus of the genus Prunus.',
+        category: 'Produce'
+    },
+    {
+        name: 'Raspberry',
+        image: 'images/products/raspberry.png',
+        price: 2.13,
+        priceSuffix: '€ /200g',
+        description: 'The raspberry is the edible fruit of a multitude of plant species in the genus Rubus of the rose family, most of which are in the subgenus Idaeobatus; the name also applies to these plants themselves.',
+        category: 'Produce'
+    },
+    {
+        name: 'Strawberry',
+        image: 'images/products/strawberry.png',
+        price: 3.89,
+        priceSuffix: '€ /kg',
+        description: 'The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries.',
+        category: 'Produce'
+    },
+    {
+        name: 'Tomato',
+        image: 'images/products/tomato.png',
+        price: 2.8,
+        priceSuffix: '€ /kg',
+        description: 'The tomato is the edible, often red, vegetable of the plant Solanum lycopersicum, commonly known as a tomato plant.',
+        category: 'Produce'
+    },
+    {
+        name: 'Cucumber',
+        image: 'images/products/cucumber.png',
+        price: 0.81,
+        priceSuffix: '€ /kg',
+        description: 'Cucumber is a widely cultivated plant in the gourd family, Cucurbitaceae.',
+        category: 'Produce'
+    },
+    {
+        name: 'Watermelon',
+        image: 'images/products/watermelon.png',
+        price: 0.99,
+        priceSuffix: '€ /kg',
+        description: 'Watermelon is a scrambling and trailing vine in the flowering plant family Cucurbitaceae.',
         category: 'Produce'
     },
     {

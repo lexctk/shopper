@@ -22,10 +22,6 @@ footer {
     border-bottom: 1px solid #DDD;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     font-size: 1.15rem!important;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
     padding: 1.5em 0em;
 }
@@ -42,10 +38,9 @@ footer {
 }
 
 /* header navbar */
-.navbar-brand {
-    font-size: 1.15rem!important;
-    padding-top: 0.5rem;
-    margin-right: 1rem;
+.nav-link:hover {
+    opacity: 0.6;
+    transition: all 0.4s linear;
 }
 
 /* add left and right margin to all font awesome icons */
@@ -56,19 +51,119 @@ footer {
 
 /* parallax on all product INDEX pages */
 .parallax {
-    /* The image used */
-    background-image: url('../images/qr_scan.png');
-    opacity: 0.3;
-
     /* Full height */
     height: 100vh; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
+
+/* barcode container */
+.anim-box {
+    opacity: 0.7;
+    margin: 0 auto;
+	position: relative;
+	width: 320px;
+	height: 170px;
+	padding: 25px 30px;
+	top: 15%;
+    animation: zoomin .6s ease-out 1;
+    animation-fill-mode: forwards;
+}
+
+/* adds the 4 corners */
+.anim-box:before, .anim-box:after, .anim-box>:first-child:before, .anim-box>:first-child:after {
+	position: absolute;
+	width: 10%; height: 15%;
+	border-color: grey; 
+	border-style: solid;
+	content: ' ';
+}
+
+/* top left corner */
+.anim-box:before {
+	top: 0; left: 0;
+	border-width: 2px 0 0 2px;
+}
+
+/* top right corner */
+.anim-box:after {
+	top: 0; right: 0;
+	border-width: 2px 2px 0 0;
+}
+
+/* bottom right corner */
+.anim-box>:first-child:before {
+	bottom: 0; right: 0;
+	border-width: 0 2px 2px 0;
+}
+
+/* bottom left corner */
+.anim-box>:first-child:after {
+	bottom: 0; left: 0;
+	border-width: 0 0 2px 2px;
+}
+
+/* barcode bars */
+.anim-item {
+	display: inline-block;
+	background-color: grey;
+	height: 100%;
+}
+
+.anim-item-sm {
+	width: 2px;
+	margin-right: 3px;
+}
+
+.anim-item-md {
+	width: 3px;
+	margin-right: 2px;
+}
+
+.anim-item-lg {
+	width: 5px;
+	margin-right: 4px;
+}
+
+/* animated laser beam */
+.scanner {
+    width: 100%;
+    height: 3px;
+    margin-left: -3px;
+    background-color: red;
+    opacity: 0.7;
+    position:relative;
+    box-shadow: 0px 0px 12px 10px rgba(255, 27, 25, 0.43);
+    top:50%;
+    animation-name: scan;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: .6s;
+}
+
+@keyframes scan {
+    0% {
+        box-shadow: 0px 0px 12px 10px rgba(255, 27, 25, 0.43);
+        top: 50%;
+    }  
+    25% {
+        box-shadow: 0px 6px 12px 10px rgba(255, 27, 25, 0.43);
+        top: 5px;
+    }
+    75% {
+        box-shadow: 0px -6px 12px 10px rgba(255, 27, 25, 0.43);
+        top: 98%;
+    }
+}
+
+@keyframes zoomin {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5, 2);
+    }
+}
+
 
 /* use to space out elements, global */
 .spacer {
@@ -125,6 +220,23 @@ footer {
     padding-left: 1.2em;
     padding-right: 1.2em;
     margin-top: 1.5em;
+}
+
+a.ui.ribbon:hover {
+    text-decoration: none;
+}
+
+/* avoids jerky snap back after hover */
+.ui.ribbon {
+    transform-origin: left bottom;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* using 3D translate to avoid artifact */
+.ui.ribbon:hover {
+    transform: translateZ(0px) scale(1.1);
+    transform-origin: left bottom;
+    transition: transform 0.4s ease-in-out;
 }
 
 .produce {

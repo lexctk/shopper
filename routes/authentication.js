@@ -10,11 +10,11 @@ var middleware  = require ('../middleware');
 // Authentication routes
 //======================
 
-router.get ('/register', middleware.isLoggedIn, middleware.isAdmin, function (req, res) {
+router.get ('/register', function (req, res) {
     res.render ('auth/register');
 })
 
-router.post ('/register', middleware.isLoggedIn, middleware.isAdmin, function (req, res) {
+router.post ('/register', function (req, res) {
     User.register (new User ({username: req.body.username, email: req.body.email}), req.body.password, function (error, user) {
         if (error) {
             console.log ('Couldn\'t register ' + error);
